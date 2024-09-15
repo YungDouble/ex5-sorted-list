@@ -2,33 +2,33 @@
 
 ## Instruction
 
-```cplus
-   // Test 2
-    /*
-    How can I use a for loop to validate each member is equals
-    To ilustrate, I use the psedocode:
-        I want to achieve this:
-        for index in range size the test array
-            if sortList[index] == sortArray[index]
-                do nothing or display the value
-            else
-                break the loop and/or throw a warning 
-    Guidance:
-    + There is several way
-    + One of them is to create a function in each class that will return a value at the according index 
-        then compare them one by one.
-    + Another one is either have a function that convert the sortedList into a 
-        Sorted Array and compare them (or the other way arround) 
-    + Another method is also using overload operator (Also require a convert) 
-    + Note Each of the methods given required other helper-functions: 
-        FEEL FREE TO WRITE AS MUCH CODE AS YOU WANT
+### Question 1: 
+**Understanding Validation Between Sorted List and Sorted Array**
+- Write a function that compares the elements at each index between `SortedList` and `SortedArray`. If the elements match, continue the loop and print the values; if they don't match, break the loop and display a warning. 
+  - What is the best approach to implement this validation, and why?
+  - Example Pseudocode:  
+    ```cpp
+    for index in range (size of test_array):
+        if sortedList.getValueAt(index) == sortedArray.getValueAt(index):
+            print(value)
+        else:
+            break and throw warning
+    ```
 
-    */
-   // Test 3: Optional / No code, answer only
-   /*
-        Questions: How can we make the sorted array more flexible (have more than 20 members)
-   */
-```
+### Question 2: 
+**Flexibility in Data Structures**
+- In **Test 32**, how can we make the `SortedArray` more flexible to handle a dynamic number of elements (e.g., beyond 20 members)? 
+  - What are some possible strategies to achieve this in C++?
+  - Consider using dynamic arrays, vectors, or another approach to extend the size limitation of the current `SortedArray`.
+
+### Question 3: 
+**Design Improvement in Data Structure Comparisons**
+- As hinted in **Question 2**, describe different methods to compare `SortedList` and `SortedArray` more efficiently:
+  - Option 1: Write helper functions in each class that return values at specific indices, comparing them one by one.
+  - Option 2: Create a function to convert a `SortedList` into a `SortedArray` (or vice versa) and then compare the arrays directly.
+  - Option 3: Use operator overloading to compare the two data structures.
+  - Which method would be most efficient in terms of time complexity, and why?
+
 ## Requirements:
 The driver program for each programming project should begin with "header comments" containing:
 ```cplus
