@@ -5,7 +5,7 @@ private:
     struct Node {
         int data;
         Node* next;
-        Node(int d) : data(d), next(nullptr) {}
+        Node(const int d) : data(d), next(nullptr) {}
     };
     Node* head;
 
@@ -44,4 +44,31 @@ public:
         }
         std::cout << std::endl;
     }
+
+    int getValueAt(int index) const {
+        Node* current = head;
+        int count = 0;
+        while (current != nullptr && count < index) {
+            current = current->next;
+            count++;
+        }
+        return (current != nullptr) ? current->data : -1;
+    }
+
+    bool operator==(const SortedArray& arr) const {
+        Node* current = head;
+        int index = 0;
+
+        // Iterate through the list and compare with the array elements
+        while (current != nullptr) {
+            if (index >= arr.getSize() || current->data != arr.getValueAt(index)) {
+                return false;
+            }
+            current = current->next;
+            ++index;
+        }
+        // Ensure that the array does not have extra elements beyond the list's lenght
+        return index == arr.getSize();
+    }
+
 };
