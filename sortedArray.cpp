@@ -8,7 +8,7 @@ private:
 public:
     SortedArray() : size(0) {}
 
-    bool insert(int value) {
+    bool insert(const int value) {
         // Terminate if full
         if (size >= 20) {
             std::cout << "Array is full. Cannot insert new element." << std::endl;
@@ -38,4 +38,16 @@ public:
         }
         std::cout << std::endl;
     }
+
+    int getSize() const {
+      return size;
+    }
+
+    int getValueAt(const int index) const {
+      if (index >= 0 && index < size) {
+        return arr[index];
+      }
+      return -1;    // Return an invalid value if out ot bounds
+    }
+
 };
