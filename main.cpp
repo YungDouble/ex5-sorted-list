@@ -1,5 +1,13 @@
-#include "sortedList.cpp"
-#include "sortedArray.cpp"
+/**
+* Programmer: Davos DeHoyos
+ * Project number: 5
+ * Project Desc: Implement and compare SortedList and SortedArray classes
+ * Course: COSC 2436 PF III Data Structures
+ * Date: 11/02/2024
+ */
+
+#include "SortedList.h"
+#include "SortedArray.h"
 #include <iostream>
 #include <cassert>
 #include <random>
@@ -36,12 +44,8 @@ void runAutomatedTests() {
         array1.insert(randomValues[i]);
     }
 
-    std::cout << "Test Case 1 - Randomized Comparison:\n";
-    if (list1 == array1) {
-        std::cout << "PASS: List and Array are equal.\n";
-    } else {
-        std::cout << "FAIL: List and Array are not equal.\n";
-    }
+    std::cout << "Test Case 1 - List and Array comparison: "
+    << (list1 == array1 ? "PASS" : "FAIL") << std::endl;
 
     // Generate another set of random values with one mismatched element
     generateRandomValues(randomValues, numElements, 1, 100);
