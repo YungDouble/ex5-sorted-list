@@ -1,53 +1,24 @@
-#include <iostream>
+#include "SortedArray.h"
 
-class SortedArray {
-private:
-    int arr[20]; // Integer array arr with a fixed size of 20
-    int size; // Integer size to keep track of the current number of elements.
+SortedArray::SortedArray() {}
 
-public:
-    SortedArray() : size(0) {}
+bool SortedArray::insert(const int value) {
+    auto pos = std::lower_bound(arr.begin(), arr.end(), value);
+    arr.insert(pos, value);
+    return true;
+}
 
-    bool insert(const int value) {
-        // Terminate if full
-        if (size >= 20) {
-            std::cout << "Array is full. Cannot insert new element." << std::endl;
-            return false;
-        }
-
-        // Find the correct position to insert the new value
-        int pos = 0;
-        while (pos < size && arr[pos] < value) {
-            ++pos;
-        }
-
-        // Shift elements to the right to make space for the new element
-        for (int i = size; i > pos; --i) {
-            arr[i] = arr[i - 1];
-        }
-
-        // Insert the new value
-        arr[pos] = value;
-        ++size;
-        return true;
+void SortedArray::printArray() const {
+    for (const int& value : arr) {
+        std::cout << value << " ";
     }
+    std::cout << std::endl;
+}
 
-    void printArray() const {
-        for (int i = 0; i < size; ++i) {
-            std::cout << arr[i] << " ";
-        }
-        std::cout << std::endl;
-    }
+int SortedArray::getSize() const {
+      return arr.size();
+}
 
-    int getSize() const {
-      return size;
-    }
-
-    int getValueAt(const int index) const {
-      if (index >= 0 && index < size) {
-        return arr[index];
-      }
-      return -1;    // Return an invalid value if out ot bounds
-    }
-
-};
+int SortedArray::getValueAt(const int index) const {
+    return (index >= 0 && index < arr.size()) ? arr[index] : -1;
+}
